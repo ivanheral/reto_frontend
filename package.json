@@ -1,5 +1,5 @@
 {
-    "name": "react_vite",
+    "name": "reto_frontend",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -9,10 +9,11 @@
         "lint": "eslint --fix ./**/*.{js,jsx}",
         "test": "jest",
         "servor": "npx servor build --browse",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "prettier": "prettier --write ."
     },
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@preact/preset-vite": "^2.5.0",
         "@testing-library/jest-dom": "^5.16.5",
