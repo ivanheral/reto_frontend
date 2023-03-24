@@ -1,0 +1,50 @@
+{
+    "name": "react_vite",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "vite",
+        "build": "vite build",
+        "lint": "eslint --fix ./**/*.{js,jsx}",
+        "test": "jest",
+        "servor": "npx servor build --browse",
+        "prepare": "husky install"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@preact/preset-vite": "^2.5.0",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^14.0.0",
+        "@types/react": "^18.0.28",
+        "@vitejs/plugin-react": "^3.1.0",
+        "autoprefixer": "^10.4.13",
+        "esbuild-jest": "^0.5.0",
+        "eslint": "^8.32.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.32.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-tailwindcss": "^3.10.1",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "husky": "^8.0.3",
+        "isomorphic-fetch": "^3.0.0",
+        "jest": "^29.3.1",
+        "jest-environment-jsdom": "^29.3.1",
+        "jest-transform-stub": "^2.0.0",
+        "lint-staged": "^13.2.0",
+        "postcss": "^8.4.21",
+        "prettier": "^2.8.6",
+        "vite": "^4.2.1"
+    },
+    "dependencies": {
+        "preact": "^10.11.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.8.0",
+        "react-router": "^6.9.0",
+        "react-router-dom": "^6.9.0",
+        "tailwindcss": "^3.2.4"
+    }
+}

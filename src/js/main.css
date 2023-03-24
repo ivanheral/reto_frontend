@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+    max-width: 1280px;
+    min-height: 1280px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    outline: 1px dashed gray;
+}
+
+a,
+button,
+a:focus,
+button:focus {
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.xxx {
+    outline: 1px dashed gray;
+}
