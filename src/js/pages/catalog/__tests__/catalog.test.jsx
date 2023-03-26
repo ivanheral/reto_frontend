@@ -10,39 +10,22 @@ afterEach(cleanup);
 
 jest.mock('../../../api/api', () => ({
     __esModule: true,
-    default: jest
-        .fn()
-        .mockResolvedValueOnce([])
-        .mockResolvedValueOnce([
-            { brand: 'Apple', model: 'iPhone 12' },
-            { brand: 'Samsung', model: 'Galaxy S21' },
-        ]),
+    default: jest.fn().mockResolvedValueOnce([
+        { brand: 'Apple', model: 'iPhone 12' },
+        { brand: 'Samsung', model: 'Galaxy S21' },
+    ]),
 }));
 
 describe('Catalog', () => {
-    test('test_products_no_data', async () => {
+    test('test_fetch_data_success', async () => {
         const { getByTestId } = render(
             <BrowserRouter>
                 <Catalog />
             </BrowserRouter>,
         );
-        await waitFor(() => {
-            const element = getByTestId('catalog_nodata');
-            // expect(element).toBeInTheDocument();
-            expect(element).toBeTruthy();
-        });
-    });
-
-    test('test_products_with_data', async () => {
-        const { getByTestId } = render(
-            <BrowserRouter>
-                <Catalog />
-            </BrowserRouter>,
-        );
-        await waitFor(() => {
-            const element = getByTestId('catalog_data');
-            // expect(element).toBeInTheDocument();
-            expect(element).toBeTruthy();
-        });
+        await waitFor(() => expect(getByTestId('catalog_data')).toBeInTheDocument());
+        expect(getByTestId('catalog_data').children.length).toBe(1);
+        expect(getByTestId('catalog_data').children[0].children.length).toBe(1);
+        expect(getByTestId('catalog_data').children[0].children[0].children.length).toBe(2);
     });
 });

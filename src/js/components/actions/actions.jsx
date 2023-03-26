@@ -33,7 +33,7 @@ const Actions = ({ options, id }) => {
     };
 
     return (
-        <div className="mt-10">
+        <form className="mt-10">
             <div>
                 <h3 className="text-sm font-medium text-gray-900">Eliga un Color</h3>
                 <fieldset className="mt-4">
@@ -110,7 +110,7 @@ const Actions = ({ options, id }) => {
             >
                 Agregar al carro
             </button>
-        </div>
+        </form>
     );
 };
 

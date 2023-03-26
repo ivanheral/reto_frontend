@@ -7,7 +7,7 @@ const Header = ({ children }) => {
     const context = useContext(ShoppingCartContext);
     return (
         <>
-            <header className="mb-4 bg-white shadow">
+            <header data-testid="header" className="mb-4 bg-white shadow">
                 <div className="mx-auto max-w-7xl py-2 pl-6 pr-4 lg:px-8">
                     <div className="flex h-16 items-center justify-between">
                         <Link to="/" className="flex shrink-0 items-center">

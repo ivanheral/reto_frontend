@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const ShoppingCartContext = React.createContext({ user: 0 });
+const ShoppingCartContext = React.createContext({ user: 0 });
 
 const ShoppingCartProvider = ({ children }) => {
     const [cart, setCart] = React.useState([]);
@@ -12,4 +12,4 @@ const ShoppingCartProvider = ({ children }) => {
     return <ShoppingCartContext.Provider value={{ cart, setCart }}>{children}</ShoppingCartContext.Provider>;
 };
 
-export { ShoppingCartProvider };
+export { ShoppingCartProvider, ShoppingCartContext };

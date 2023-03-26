@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import fetchAPI from '../../api/api';
 import Item from '../../components/item/item';
 import Search from '../../components/search/search';
+import { setLocalStorage } from '../../utils/storage';
 const Catalog = () => {
     const [products, setProducts] = useState(null);
     const [productsfilter, setProductsFilter] = useState(null);
@@ -27,6 +28,7 @@ const Catalog = () => {
                 /** */
                 setProducts(data);
                 setProductsFilter(data);
+                setLocalStorage('catalog', data, 3600);
             })
             .catch((_error) => {
                 /** */

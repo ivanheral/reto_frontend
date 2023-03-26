@@ -5,12 +5,15 @@ import Image from '../../components/image/image';
 const Item = ({ imgUrl, brand, model, price, id }) => {
     return (
         <Link to={`details/${id}`} data-testid="item" className="group relative">
-            <div className="lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+            <div
+                data-testid="item_image"
+                className="lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80"
+            >
                 <Image imgUrl={imgUrl} />
             </div>
             <div className="mt-4 flex justify-between">
                 <div>
-                    <h3 className="text-sm text-gray-700">
+                    <h3 data-testid="item_brand" className="text-sm text-gray-700">
                         <span aria-hidden="true" className="absolute inset-0"></span>
                         {brand}
                     </h3>

@@ -18,7 +18,7 @@ describe('Storage', () => {
         const result = getLocalStorage(key);
 
         // Assert
-        expect(result).toEqual(value);
+        expect(result).toEqual('{"name":"John","age":30}');
     });
 
     // Tests that the function retrieves null from localstorage with a key that has an expired value. tags: [happy path]

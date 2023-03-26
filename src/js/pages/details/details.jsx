@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import fetchAPI from '../../api/api';
 import Actions from '../../components/actions/actions';
 import Image from '../../components/image/image';
+import { setLocalStorage } from '../../utils/storage';
 const Details = () => {
     let { id } = useParams();
 
@@ -15,6 +16,7 @@ const Details = () => {
         fetchAPI(`api/product/${id}`, 'GET', id)
             .then((data) => {
                 setProduct(data);
+                setLocalStorage(id, data, 3600);
             })
             .catch((_error) => {
                 setError(true);
@@ -60,7 +62,7 @@ const Details = () => {
             );
         } else if (product) {
             return (
-                <div className="bg-white">
+                <div data-testid="product_data" className="bg-white">
                     <div className="pt-6">
                         <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
                             <div className="overflow-hidden rounded-lg lg:col-span-1">

@@ -3,7 +3,7 @@ import { getLocalStorage } from '../utils/storage';
 const API_URL = import.meta.env.VITE_API_URL;
 
 function fetchAPI(path, method, storage, body) {
-    if (getLocalStorage(storage)) return getLocalStorage(storage);
+    if (getLocalStorage(storage)) return Promise.resolve(getLocalStorage(storage));
 
     const myHeaders = new Headers();
 

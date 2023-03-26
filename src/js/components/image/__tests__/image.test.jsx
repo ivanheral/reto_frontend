@@ -3,7 +3,8 @@
  ===================*/
 import React from 'react';
 import Image from '../image';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
+afterEach(cleanup);
 
 describe('<Image />', () => {
     // Tests that providing a valid imgurl renders the image correctly. tags: [happy path]
