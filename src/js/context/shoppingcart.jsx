@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const ShoppingCartContext = React.createContext({ user: 0 });
+const ShoppingCartContext = React.createContext();
 
 const ShoppingCartProvider = ({ children }) => {
     const [cart, setCart] = React.useState([]);

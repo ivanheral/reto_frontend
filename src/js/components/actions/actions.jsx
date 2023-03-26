@@ -11,7 +11,8 @@ const Actions = ({ options, id }) => {
 
     const { cart, setCart } = useContext(ShoppingCartContext);
 
-    const addCart = () => {
+    const addCart = (event) => {
+        event.preventDefault();
         fetchAPI('api/cart', 'POST', 'cart', cart)
             .then((_data) => {
                 /** */
@@ -20,7 +21,6 @@ const Actions = ({ options, id }) => {
                 /** */
             })
             .finally(() => {
-                /** */
                 setCart([...cart, product]);
             });
     };
@@ -33,7 +33,7 @@ const Actions = ({ options, id }) => {
     };
 
     return (
-        <form className="mt-10">
+        <form className="mt-10" onSubmit={(e) => addCart(e)}>
             <div>
                 <h3 className="text-sm font-medium text-gray-900">Eliga un Color</h3>
                 <fieldset className="mt-4">
@@ -51,6 +51,7 @@ const Actions = ({ options, id }) => {
                                     <input
                                         type="radio"
                                         name="size-choice"
+                                        data-testid={e.code}
                                         value={e.code}
                                         checked={e.code == product.colorCode || options.colors?.length == 1}
                                         onChange={handleOptionColorChange}
@@ -85,6 +86,7 @@ const Actions = ({ options, id }) => {
                                     <input
                                         type="radio"
                                         name="size-choice"
+                                        data-testid={e.code}
                                         value={e.code}
                                         checked={e.code == product.storageCode || options.storage?.length == 1}
                                         onChange={handleOptionStorageChange}
@@ -104,8 +106,7 @@ const Actions = ({ options, id }) => {
             </div>
 
             <button
-                onClick={() => addCart()}
-                disabled={!product.colorCode || !product.storageCode}
+                data-testid="actions_add"
                 className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-500"
             >
                 Agregar al carro
