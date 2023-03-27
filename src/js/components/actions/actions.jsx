@@ -13,9 +13,10 @@ const Actions = ({ options, id }) => {
 
     const addCart = (event) => {
         event.preventDefault();
-        fetchAPI('api/cart', 'POST', 'cart', cart)
-            .then((_data) => {
+        fetchAPI('api/cart', 'POST', 'cart', product)
+            .then((data) => {
                 /** */
+                console.log(data);
             })
             .catch((_error) => {
                 /** */
@@ -25,11 +26,11 @@ const Actions = ({ options, id }) => {
             });
     };
     const handleOptionStorageChange = (changeEvent) => {
-        setProduct({ ...product, storageCode: changeEvent.target.value });
+        setProduct({ ...product, storageCode: +changeEvent.target.value });
     };
 
     const handleOptionColorChange = (changeEvent) => {
-        setProduct({ ...product, colorCode: changeEvent.target.value });
+        setProduct({ ...product, colorCode: +changeEvent.target.value });
     };
 
     return (
