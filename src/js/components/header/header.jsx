@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ShoppingCartContext } from '../../context/shoppingcart';
 import { AiOutlineShoppingCart, AiOutlineShop } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 
 const Header = ({ children }) => {
     const context = useContext(ShoppingCartContext);

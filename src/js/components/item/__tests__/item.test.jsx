@@ -4,7 +4,7 @@
 import React from 'react';
 import Item from '../item';
 import { render, fireEvent, cleanup } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+
 afterEach(cleanup);
 
 describe('<Item />', () => {
@@ -16,11 +16,7 @@ describe('<Item />', () => {
             price: 100,
             id: '123',
         };
-        const { getByTestId } = render(
-            <BrowserRouter>
-                <Item {...props} />
-            </BrowserRouter>,
-        );
+        const { getByTestId } = render(<Item {...props} />);
         const itemLink = getByTestId('item');
         const itemBrand = getByTestId('item_brand');
         const itemModel = getByTestId('item_model');
@@ -43,11 +39,7 @@ describe('<Item />', () => {
             price: 100,
             id: '123',
         };
-        const { getByTestId } = render(
-            <BrowserRouter>
-                <Item {...props} />
-            </BrowserRouter>,
-        );
+        const { getByTestId } = render(<Item {...props} />);
         const itemLink = getByTestId('item');
 
         fireEvent.click(itemLink);
@@ -64,11 +56,7 @@ describe('<Item />', () => {
             price: 0,
             id: '123',
         };
-        const { getByTestId } = render(
-            <BrowserRouter>
-                <Item {...props} />
-            </BrowserRouter>,
-        );
+        const { getByTestId } = render(<Item {...props} />);
         const itemBrand = getByTestId('item_brand');
         const itemModel = getByTestId('item_model');
         const itemPrice = getByTestId('item_price');

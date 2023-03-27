@@ -5,7 +5,6 @@ import React from 'react';
 import Actions from '../actions';
 import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import { ShoppingCartContext } from '../../../context/shoppingcart';
-import { BrowserRouter } from 'react-router-dom';
 import fetchAPI from '../../../api/api';
 afterEach(cleanup);
 
@@ -20,12 +19,10 @@ describe('<Actions />', () => {
         const mockSetCart = jest.fn();
         const { getByTestId } = render(
             <ShoppingCartContext.Provider value={{ cart: mockCart, setCart: mockSetCart }}>
-                <BrowserRouter>
-                    <Actions
-                        options={{ colors: [{ code: 'red', name: 'Red' }], storages: [{ code: '32gb', name: '32GB' }] }}
-                        id={1}
-                    />
-                </BrowserRouter>
+                <Actions
+                    options={{ colors: [{ code: 'red', name: 'Red' }], storages: [{ code: '32gb', name: '32GB' }] }}
+                    id={1}
+                />
             </ShoppingCartContext.Provider>,
         );
         fireEvent.change(getByTestId('red'));

@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 // styles
 import './main.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Router, Route } from 'wouter';
 import { ShoppingCartProvider } from './context/shoppingcart';
 import Head from './components/header/header';
 import Catalog from './pages/catalog/catalog';
@@ -20,18 +20,18 @@ const Loading = () => {
 };
 
 root.render(
-    <BrowserRouter>
+    <Router>
         <ShoppingCartProvider>
             <Suspense fallback={<Loading />}>
                 <div className="container">
                     <Head>
-                        <Routes>
-                            <Route path="/" element={<Catalog />}></Route>
-                            <Route path="/details/:id" element={<Details />}></Route>
-                        </Routes>
+                        <Route path="/">
+                            <Catalog />
+                        </Route>
+                        <Route path="/details/:id">{(params) => <Details id={params.id} />}</Route>
                     </Head>
                 </div>
             </Suspense>
         </ShoppingCartProvider>
-    </BrowserRouter>,
+    </Router>,
 );

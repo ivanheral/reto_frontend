@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import fetchAPI from '../../api/api';
 import Actions from '../../components/actions/actions';
 import Image from '../../components/image/image';
 import { setLocalStorage } from '../../utils/storage';
-const Details = () => {
-    let { id } = useParams();
-
+const Details = ({ id }) => {
     const [product, setProduct] = useState(null);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -79,35 +76,51 @@ const Details = () => {
                                 <div className="mt-4">
                                     <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
                                         <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.cpu}</span>
+                                            <span data-testid="product_cpu" className="text-gray-600">
+                                                {product.cpu}
+                                            </span>
                                         </li>
                                         <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.ram}</span>
+                                            <span data-testid="product_ram" className="text-gray-600">
+                                                {product.ram}
+                                            </span>
                                         </li>
                                         <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.os}</span>
+                                            <span data-testid="product_os" className="text-gray-600">
+                                                {product.os}
+                                            </span>
                                         </li>
                                         <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.displayResolution}</span>
+                                            <span data-testid="product_displayresolution" className="text-gray-600">
+                                                {product.displayResolution}
+                                            </span>
                                         </li>
                                         <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.battery}</span>
-                                        </li>
-
-                                        <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.primaryCamera}</span>
-                                        </li>
-
-                                        <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.secondaryCmera}</span>
-                                        </li>
-
-                                        <li className="text-gray-400">
-                                            <span className="text-gray-600">{product.dimentions}</span>
+                                            <span data-testid="product_battery" className="text-gray-600">
+                                                {product.battery}
+                                            </span>
                                         </li>
 
                                         <li className="text-gray-400">
-                                            <span className="text-gray-600">
+                                            <span data-testid="product_primarycamera" className="text-gray-600">
+                                                {product.primaryCamera}
+                                            </span>
+                                        </li>
+
+                                        <li className="text-gray-400">
+                                            <span data-testid="product_secondarycamera" className="text-gray-600">
+                                                {product.secondaryCmera}
+                                            </span>
+                                        </li>
+
+                                        <li className="text-gray-400">
+                                            <span data-testid="product_dimentions" className="text-gray-600">
+                                                {product.dimentions}
+                                            </span>
+                                        </li>
+
+                                        <li className="text-gray-400">
+                                            <span data-testid="product_weight" className="text-gray-600">
                                                 {product.weight ? product.weight : 0}g
                                             </span>
                                         </li>

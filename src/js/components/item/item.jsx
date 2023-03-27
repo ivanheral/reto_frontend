@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import Image from '../../components/image/image';
 
 const Item = ({ imgUrl, brand, model, price, id }) => {

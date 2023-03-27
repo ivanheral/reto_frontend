@@ -10,7 +10,8 @@
         "test": "jest",
         "servor": "npx servor build --browse",
         "prepare": "husky install",
-        "prettier": "prettier --write ."
+        "prettier": "prettier --write .",
+        "visualizer": "npx vite-bundle-visualizer"
     },
     "author": "",
     "license": "MIT",
@@ -46,6 +47,7 @@
         "react-icons": "^4.8.0",
         "react-router": "^6.9.0",
         "react-router-dom": "^6.9.0",
-        "tailwindcss": "^3.2.4"
+        "tailwindcss": "^3.2.4",
+        "wouter": "^2.10.0"
     }
 }
