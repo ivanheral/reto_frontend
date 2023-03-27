@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import fetchAPI from '../../api/api';
 import { ShoppingCartContext } from '../../context/shoppingcart';
+import { setLocalStorage } from '../../utils/storage';
 
 const Actions = ({ options, id }) => {
     const [product, setProduct] = useState({
@@ -16,7 +17,7 @@ const Actions = ({ options, id }) => {
         fetchAPI('api/cart', 'POST', 'cart', product)
             .then((data) => {
                 /** */
-                console.log(data);
+                setLocalStorage('cart', data, 3600);
             })
             .catch((_error) => {
                 /** */
