@@ -5,7 +5,10 @@ const API_URL = import.meta.env.VITE_API_URL;
 function fetchAPI(path, method, storage, body) {
     if (getLocalStorage(storage)) return Promise.resolve(getLocalStorage(storage));
 
-    const myHeaders = new Headers();
+    const myHeaders = new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+    });
 
     const Init = { method, headers: myHeaders };
 

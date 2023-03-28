@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import fetchAPI from '../../api/api';
 import { ShoppingCartContext } from '../../context/shoppingcart';
+import { setLocalStorage } from '../../utils/storage';
 
 const Actions = ({ options, id }) => {
     const [product, setProduct] = useState({
@@ -13,9 +14,10 @@ const Actions = ({ options, id }) => {
 
     const addCart = (event) => {
         event.preventDefault();
-        fetchAPI('api/cart', 'POST', 'cart', cart)
-            .then((_data) => {
+        fetchAPI('api/cart', 'POST', 'cart', product)
+            .then((data) => {
                 /** */
+                setLocalStorage('cart', data, 3600);
             })
             .catch((_error) => {
                 /** */
@@ -25,11 +27,11 @@ const Actions = ({ options, id }) => {
             });
     };
     const handleOptionStorageChange = (changeEvent) => {
-        setProduct({ ...product, storageCode: changeEvent.target.value });
+        setProduct({ ...product, storageCode: +changeEvent.target.value });
     };
 
     const handleOptionColorChange = (changeEvent) => {
-        setProduct({ ...product, colorCode: changeEvent.target.value });
+        setProduct({ ...product, colorCode: +changeEvent.target.value });
     };
 
     return (
