@@ -20,7 +20,10 @@ describe('<Actions />', () => {
         const { getByTestId } = render(
             <ShoppingCartContext.Provider value={{ cart: mockCart, setCart: mockSetCart }}>
                 <Actions
-                    options={{ colors: [{ code: 'red', name: 'Red' }], storages: [{ code: '32gb', name: '32GB' }] }}
+                    options={{
+                        colors: [{ code: 'red', name: 'Red' }],
+                        storages: [{ code: '32gb', name: '32GB' }],
+                    }}
                     id={1}
                 />
             </ShoppingCartContext.Provider>,

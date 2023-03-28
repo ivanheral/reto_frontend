@@ -13,8 +13,7 @@ jest.mock('../api', () => ({
         .mockResolvedValueOnce({ test: 'data' })
         .mockRejectedValueOnce(new Error('Invalid path'))
         .mockRejectedValueOnce(new Error('Invalid method'))
-        .mockRejectedValueOnce(new Error('Invalid body'))
-        .mockResolvedValue({ ok: false }),
+        .mockRejectedValueOnce(new Error('Invalid body')),
 }));
 
 describe('API', () => {
@@ -28,7 +27,9 @@ describe('API', () => {
 
     // Tests that the function makes a successful fetch request and returns the response in json format. tags: [happy path]
     it('test_fetch_from_api', async () => {
-        expect(await fetchAPI('path', 'GET', null, null)).toEqual({ test: 'data' });
+        expect(await fetchAPI('path', 'GET', null, null)).toEqual({
+            test: 'data',
+        });
     });
 
     // Tests that the function handles an invalid api endpoint path by rejecting the promise. tags: [edge case]

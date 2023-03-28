@@ -11,7 +11,10 @@ describe('Storage', () => {
         const value = { name: 'John', age: 30 };
         localStorage.setItem(
             key,
-            JSON.stringify({ value: JSON.stringify(value), expiry: new Date().getTime() + 1000 }),
+            JSON.stringify({
+                value: JSON.stringify(value),
+                expiry: new Date().getTime() + 1000,
+            }),
         );
 
         // Act
@@ -28,7 +31,10 @@ describe('Storage', () => {
         const value = { name: 'John', age: 30 };
         localStorage.setItem(
             key,
-            JSON.stringify({ value: JSON.stringify(value), expiry: new Date().getTime() - 1000 }),
+            JSON.stringify({
+                value: JSON.stringify(value),
+                expiry: new Date().getTime() - 1000,
+            }),
         );
 
         // Act
@@ -45,7 +51,10 @@ describe('Storage', () => {
         const value = { name: 'John', age: 30 };
         localStorage.setItem(
             key,
-            JSON.stringify({ value: JSON.stringify(value), expiry: new Date().getTime() - 1000 }),
+            JSON.stringify({
+                value: JSON.stringify(value),
+                expiry: new Date().getTime() - 1000,
+            }),
         );
 
         // Act
